@@ -2,14 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useTaskStore = defineStore('tasks', {
   state: () => ({
-      tasks: [
-        {
-          id: 1, title: 'Task1', isFavorite: true, completed: false
-        },
-        {
-          id: 2, title: 'Task 2', isFavorite: false, completed: false
-        }
-      ]
+      tasks: []
   }),
   getters: {
     sorted(){
@@ -72,5 +65,6 @@ export const useTaskStore = defineStore('tasks', {
         const task = this.tasks.find(e => e.id === id)
         task.completed = !task.completed
     }
-  }
+  },
+    persist: true
 })
