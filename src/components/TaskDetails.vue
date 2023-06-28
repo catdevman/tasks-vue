@@ -1,10 +1,10 @@
 <template>
     <div class="task">
-        <h3>{{ task.title }}</h3>
+        <h3 :class="{ completed: task.completed}">{{ task.title }}</h3>
         <div class="icons">
-            <i class="material-icons">delete</i>
-            <i class="material-icons">favorite</i>
-            <i class="material-icons">done</i>
+            <i @click="taskStore.deleteTask(task.id)" class="material-icons">delete</i>
+            <i @click="taskStore.toggleFavorite(task.id)" class="material-icons" :class="{favorite: task.isFavorite}">favorite</i>
+            <i @click="taskStore.toggleCompleted(task.id)" class="material-icons" :class="{completed: task.completed}">done</i>
         </div>
     </div>
 </template>
